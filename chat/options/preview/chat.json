@@ -9,7 +9,7 @@
                 "resolveKeyTexts": ["情人节", "情人", "纪念日"],
                 "rejectKeyTexts": [],
                 "rejectHitTexts": [
-                    "给你提示一下，今天是2022年2月14号喔",
+                    "给你提示一下，今天是2023年2月14号喔",
                     "这都答不出来吗，我要生气了。",
                     "好吧，看在你应该不是故意的份上告诉你吧，今天是情人节～"
                 ]
@@ -69,12 +69,12 @@
         "triggerNextAction": { "type": "componentClose" }
     },
 
-    { "msgs": ["文采怎么样？是不是？"] },
+    { "msgs": ["文采怎么样？是不是？"] ,"msgInputSpeed": 40},
     { "msgs": ["<img src='options/preview/imgs/感动到哭.png'/>"] },
     { "msgs": ["再看看这个视频"], "msgInputSpeed": 20 },
     {
         "msgs": ["<vlog src='options/preview/vlogs/test.mp4'/>"],
         "triggerNextAction": { "type": "componentClose" }
     },
-    { "msgs": ["结束啦，宝贝永远爱你哦 ！比心 ！"], "msgInputSpeed": 20 }
+    { "msgs": ["结束啦，宝贝，永远爱你哦 ！比心 ！"], "msgInputSpeed": 20 }
 ]
