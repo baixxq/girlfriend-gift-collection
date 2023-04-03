@@ -65,7 +65,7 @@
     },
     { "msgs": ["心里话都在这封信里"], "msgInputSpeed": 20 },
     {
-        "msgs": ["<letter src='options/demo/letters/test.json'/>"],
+        "msgs": ["<letter src='options/preview/letters/test.json'/>"],
         "triggerNextAction": { "type": "componentClose" }
     },
 
