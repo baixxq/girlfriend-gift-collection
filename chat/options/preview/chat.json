@@ -73,7 +73,7 @@
     { "msgs": ["<img src='options/preview/imgs/感动到哭.png'/>"] },
     { "msgs": ["再看看这个视频"], "msgInputSpeed": 20 },
     {
-        "msgs": ["<vlog src='options/demo/vlogs/test.mp4'/>"],
+        "msgs": ["<vlog src='options/preview/vlogs/test.mp4'/>"],
         "triggerNextAction": { "type": "componentClose" }
     },
     { "msgs": ["结束啦，宝贝永远爱你哦 ！比心 ！"], "msgInputSpeed": 20 }
