@@ -50,5 +50,9 @@
     },
     { "msgs": ["文采怎么样？是不是？"] },
     { "msgs": ["<img src='options/preview/感动到哭.png'/>"] },
-    { "msgs": ["演示完成..."], "msgInputSpeed": 80 }
+    { "msgs": ["再看看这个视频"], "msgInputSpeed": 80 },
+    {
+        "msgs": ["<vlog src='options/demo/vlogs/test.mp4'/>"],
+        "triggerNextAction": { "type": "componentClose" }
+    }
 ]
