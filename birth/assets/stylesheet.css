@@ -1281,15 +1281,15 @@ audio {
 	font-weight: bold;
 	text-align: center;
 }
-.message p img{
-	display: block;
-	width: 90vw;
-	height: auto;
-	max-width: 98vw;
-	max-height: 80vh;
-	margin: 20px auto;
-	border-radius: 20px;
-	box-shadow: #aaa 0 0 8px;
+.message p img {
+    display: block;
+    max-width: 60vw;      /* 最大宽度为视口宽度的98% */
+    max-height: 60vh;     /* 最大高度为视口高度的80% */
+    width: auto;          /* 宽度自适应，保持比例 */
+    height: auto;         /* 高度自适应，保持比例 */
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: #aaa 0 0 8px;
 }
 
 .btn-primary {
