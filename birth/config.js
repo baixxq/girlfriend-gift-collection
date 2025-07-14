@@ -34,10 +34,10 @@ var config = {
      * Tip: 图片最好用正方形or接近正方形, 看起来效果更好
      */
     imgs: {
-        "送给我": "./imgs/nothing.jpg",
-        "心爱的刘小姐": "./imgs/nothing.jpg",
+        "送给我": "./imgs/DSC04086.jpg",
+        "心爱的刘小姐": "./imgs/DSC04115.jpg",
         "今天是你的生日": "./imgs/nothing.jpg",
-        "这是我们异地的": "./imgs/nothing.jpg",
+        "这是我们异地的": "./imgs/DSC04385.jpg",
         "第二年！": "./imgs/nothing.jpg",
         "这些年，我见过你": "./imgs/nothing.jpg",
         "奇怪的样子": "./imgs/nothing.jpg",
