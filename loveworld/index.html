@@ -172,6 +172,13 @@
       </div>
       <div class="photo-wall" id="photo-wall"></div>
     </section>
+
+    <section id="comments">
+      <div class="section-title">
+        <h2>留个言吧</h2>
+      </div>
+      <div id="tcomment"></div>
+    </section>
   </main>
 
   <div class="lightbox hidden" id="lightbox" hidden>
@@ -184,5 +191,13 @@
 
   <script src="js/garden.js"></script>
   <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/twikoo@1.7.15/dist/twikoo.all.min.js"></script>
+  <script>
+    twikoo.init({
+      envId: "https://twikoo.lovebai.top/",
+      el: "#tcomment",
+      path: location.pathname
+    });
+  </script>
 </body>
 </html>

@@ -884,3 +884,13 @@ section {
   12% { opacity: var(--a, 0.5); }
   100% { transform: translateY(-106vh) translateX(var(--sway, 30px)) rotate(320deg); opacity: 0; }
 }
+
+/* ============ Twikoo 评论区 ============ */
+#comments {
+  padding-bottom: 140px;
+}
+
+#tcomment {
+  max-width: 780px;
+  margin: 0 auto;
+}
