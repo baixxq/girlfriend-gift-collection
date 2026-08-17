@@ -15,6 +15,9 @@
   let offsetY = 0;
   let heartScale = 1;
   let clockReady = false;
+  let renderTimer = null;
+  let heartTimer = null;
+  let resizeDebounce = null;
 
   const resizeSky = () => {
     sky.width = innerWidth;
@@ -120,7 +123,11 @@
       if (next === "<") i = html.indexOf(">", i) + 1;
       else i += 1;
       el.innerHTML = html.substring(0, i) + (i < html.length ? '<span class="caret"></span>' : "");
-      if (i < html.length) setTimeout(tick, 28);
+      if (i < html.length) {
+        setTimeout(tick, 28);
+      } else {
+        el.dataset.typed = "1";
+      }
     };
     tick();
   };
@@ -141,9 +148,10 @@
   };
 
   const startHeartAnimation = () => {
+    if (heartTimer) clearInterval(heartTimer);
     let angle = 10;
     const points = [];
-    const timer = setInterval(() => {
+    heartTimer = setInterval(() => {
       const point = getHeartPoint(angle);
       const tooClose = points.some((prev) => {
         const dist = Math.hypot(prev[0] - point[0], prev[1] - point[1]);
@@ -154,7 +162,8 @@
         garden.createRandomBloom(point[0], point[1]);
       }
       if (angle >= 30) {
-        clearInterval(timer);
+        clearInterval(heartTimer);
+        heartTimer = null;
         $("#messages").style.display = "block";
         setTimeout(() => {
           $("#loveu").style.display = "block";
@@ -165,16 +174,13 @@
     }, 50);
   };
 
-  const initBigClock = () => {
+  const buildClock = () => {
     const box = $("#loveHeart");
     const canvas = $("#garden");
-    if (!box || !canvas || clockReady) return;
+    if (!box || !canvas) return false;
 
     const maxW = Math.min(HEART_W, box.parentElement.clientWidth);
-    if (!maxW) {
-      requestAnimationFrame(initBigClock);
-      return;
-    }
+    if (!maxW) return false;
 
     heartScale = maxW / HEART_W;
     box.style.width = `${maxW}px`;
@@ -196,28 +202,74 @@
       opacity: 0.14,
     };
     garden = new Garden(gardenCtx, canvas);
+
+    if (renderTimer) clearInterval(renderTimer);
+    renderTimer = setInterval(() => garden.render(), Garden.options.growSpeed);
+    return true;
+  };
+
+  const initBigClock = () => {
+    if (clockReady) return;
+    if (!buildClock()) {
+      requestAnimationFrame(initBigClock);
+      return;
+    }
     clockReady = true;
-    setInterval(() => garden.render(), Garden.options.growSpeed);
     typeHomeLetter();
     adjustWords();
     startHeartAnimation();
   };
 
+  const rebuildClock = () => {
+    const code = $("#code");
+    if (code && code.dataset.typed) {
+      code.style.height = "auto";
+      code.style.height = `${code.offsetHeight}px`;
+    }
+    if (!clockReady || !buildClock()) return;
+    adjustWords();
+    startHeartAnimation();
+  };
+
+  addEventListener("resize", () => {
+    if (!clockReady) return;
+    clearTimeout(resizeDebounce);
+    resizeDebounce = setTimeout(rebuildClock, 250);
+  });
+
   const setupMusic = () => {
     const audio = $("#bgm");
     const btn = $("#music-btn");
-    btn.addEventListener("click", async () => {
-      if (audio.paused) {
-        try {
-          await audio.play();
-          btn.textContent = "♪";
-        } catch {
-          btn.textContent = "×";
-        }
-      } else {
-        audio.pause();
-        btn.textContent = "♫";
+    if (!audio || !btn) return;
+    let playing = false;
+    const start = async () => {
+      try {
+        await audio.play();
+        playing = true;
+        btn.textContent = "♪";
+      } catch {
+        btn.textContent = "×";
       }
+    };
+    const stop = () => {
+      audio.pause();
+      playing = false;
+      btn.textContent = "♫";
+    };
+    // 浏览器不允许无交互自动播放，首次点击/触摸/滚动时自动开始
+    const onFirstInteract = () => {
+      if (!playing) start();
+      document.removeEventListener("click", onFirstInteract);
+      document.removeEventListener("touchstart", onFirstInteract);
+      document.removeEventListener("scroll", onFirstInteract);
+    };
+    document.addEventListener("click", onFirstInteract);
+    document.addEventListener("touchstart", onFirstInteract);
+    document.addEventListener("scroll", onFirstInteract, { passive: true });
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (playing) stop();
+      else start();
     });
   };
 
@@ -258,7 +310,7 @@
     $("#home").scrollIntoView({ behavior: "smooth" });
   });
 
-  const PHOTO_COUNT = 12;
+  const PHOTO_COUNT = 40;
   const loadedPhotos = [];
 
   const setupGallery = () => {

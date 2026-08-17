@@ -580,14 +580,62 @@ section {
 }
 
 @media (max-width: 960px) {
+  .clock-home {
+    align-items: flex-start;
+    padding: 76px 16px 36px;
+  }
+
   .clock-stage {
     flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .clock-home #code {
+    width: 100%;
+    flex: 1 1 auto;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .clock-home #code .space {
+    width: 14px;
   }
 
   #loveHeart {
     width: min(670px, 100%);
     height: auto;
     aspect-ratio: 670 / 625;
+    margin-top: 8px;
+  }
+
+  #words {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  #elapseClock {
+    text-align: center;
+  }
+
+  #elapseClock .digit {
+    font-size: 26px;
+  }
+
+  #loveu {
+    margin: 44px 0 0;
+    padding: 0;
+    font-size: 19px;
+    text-align: center;
+  }
+
+  #loveu .signature {
+    font-size: 17px;
+  }
+
+  .scroll-hint {
+    bottom: 12px;
   }
 
   .nav {
