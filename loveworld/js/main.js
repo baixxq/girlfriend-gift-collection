@@ -242,23 +242,32 @@
     const btn = $("#music-btn");
     if (!audio || !btn) return;
     let playing = false;
+    const setOn = () => {
+      playing = true;
+      btn.textContent = "♪";
+    };
+    const setOff = () => {
+      playing = false;
+      btn.textContent = "♫";
+    };
     const start = async () => {
       try {
         await audio.play();
-        playing = true;
-        btn.textContent = "♪";
+        setOn();
       } catch {
-        btn.textContent = "×";
+        setOff();
       }
     };
     const stop = () => {
       audio.pause();
-      playing = false;
-      btn.textContent = "♫";
+      setOff();
     };
-    // 浏览器不允许无交互自动播放，首次点击/触摸/滚动时自动开始
+    // autoplay 属性在 HTML 里（与 loveppt 一致），这里只同步按钮状态
+    audio.addEventListener("play", setOn);
+    audio.addEventListener("pause", setOff);
+    // 若 autoplay 被浏览器拦截，首次点击/触摸/滚动时兜底播放
     const onFirstInteract = () => {
-      if (!playing) start();
+      if (audio.paused) start();
       document.removeEventListener("click", onFirstInteract);
       document.removeEventListener("touchstart", onFirstInteract);
       document.removeEventListener("scroll", onFirstInteract);

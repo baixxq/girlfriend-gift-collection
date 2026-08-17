@@ -1,6 +1,6 @@
 @font-face {
   font-family: "digit";
-  src: url("../../loveheart/digital-7_mono.ttf") format("truetype");
+  src: url("../digital-7_mono.ttf") format("truetype");
 }
 
 :root {
