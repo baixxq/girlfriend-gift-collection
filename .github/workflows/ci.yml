@@ -9,7 +9,7 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: Deploy to Tencent COS
         env:
           SECRET_ID: ${{ secrets.COS_TENCENT_SECRET_ID }}
