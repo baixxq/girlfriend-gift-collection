@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>橙子和花花的恋爱宇宙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+  <canvas id="sky"></canvas>
+  <div class="petals" id="petals"></div>
+  <div class="hearts-layer"></div>
+  <div class="moon" aria-hidden="true"></div>
+
+  <nav class="nav">
+    <a href="#home">大笨钟</a>
+    <a href="#meet">认识</a>
+    <a href="#record">记录</a>
+    <a href="#love">恋爱</a>
+    <a href="#gallery">照片</a>
+  </nav>
+
+  <div class="toolbar">
+    <button class="icon-btn" id="music-btn" title="音乐">♫</button>
+    <button class="icon-btn" id="top-btn" title="回到顶部">↑</button>
+  </div>
+
+  <audio id="bgm" loop preload="none">
+    <source src="bgm.mp3" type="audio/mpeg" />
+  </audio>
+
+  <main id="world" class="page">
+    <section class="clock-home" id="home">
+      <div class="clock-stage">
+        <div id="code" aria-label="给花花的信">
+          <span class="space"></span><span class="comments">橙子很想念花花，没有花花的夜晚，连星星都像撒了一地的冰糖，甜得发苦。橙子不喜欢吃饭的时候没有花花陪伴，不喜欢冷冷的天气口袋里没有花花的小手手，不喜欢凉爽的天气不能和花花一起散步...</span><br />
+          <span class="space"></span><span class="comments"></span><br />
+          <span class="space"></span><span class="comments">可是橙子偷偷攒了好多好多梦呢！橙子想和花花一起旅游，一起拍美美的照片。想去海边，在沙滩上画一个大大的心心，堆个歪歪扭扭的城堡，再手拉手追着浪花跑呀跑，玩累了就去吃好吃的，然后就买一份，抢花花的吃的...</span><br />
+          <span class="space"></span><span class="comments"></span><br />
+          <span class="space"></span><span class="comments">现在的分别，就像揉面团，揉得越用力，将来的面包就越香软。橙子在揉，花花在揉，连时间这个坏脾气的面包师傅，也终会给我们撒上糖霜的。</span><br />
+          <span class="space"></span><span class="comments"></span><br />
+          <span class="space"></span><span class="comments">两处相思同淋雪，此生也算共白头，等见面的那天，我们要把积攒的月光、海风、樱花和路过的每一朵云，都塞进同一个拥抱里呀，相信那一天很快到来啦~~</span><br />
+        </div>
+        <div id="loveHeart">
+          <canvas id="garden"></canvas>
+          <div id="words">
+            <div id="messages">
+              橙子和花花在一起已经
+              <div id="elapseClock"></div>
+            </div>
+            <div id="loveu">
+              爱你！加倍！超级加倍！
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#meet">
+        <span class="scroll-hint__text">往下滑 · 走进我们的宇宙</span>
+        <span class="scroll-hint__arrow">⌄</span>
+      </a>
+    </section>
+
+    <section id="meet">
+      <div class="section-title">
+        <h2>先是看见你</h2>
+      </div>
+      <div class="timeline">
+        <article class="panel">
+          <i class="dot"></i>
+          <time>春天的某一夜</time>
+          <h3>你是我，没写出来的那一行</h3>
+          <p class="muted">遇见你之前，我的人生像一封没写完的信，最后一行怎么也填不上。直到那个春天的夜晚，一句「在吗」突然亮起来，我才明白——原来我缺的那一行，写的是你。从那天起，这封搁下许久的信，忽然有了想一直写下去的念头。</p>
+        </article>
+        <article class="panel">
+          <i class="dot"></i>
+          <time>再后来的很多天</time>
+          <h3>开始把你放进一天的缝隙里</h3>
+          <p class="muted">走路会想发给你路边的云。吃饭会空一双筷子。冷的时候先摸自己的口袋，才想起那里还没有你的手。</p>
+        </article>
+        <article class="panel">
+          <i class="dot"></i>
+          <time>直到瞒不住</time>
+          <h3>确认你不是路过的人</h3>
+          <p class="muted">有些人认识了，会慢慢变淡。花花没有。橙子开始记得你的作息、你的口头禅。于是知道了：这不是路过，这是要过一辈子的那种认识。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="record">
+      <div class="section-title">
+        <h2>把日子一颗一颗捡起来</h2>
+      </div>
+      <div class="timeline">
+        <article class="panel">
+          <i class="dot"></i>
+          <time>还没在一起的时候</time>
+          <h3>想和你，吃好多好多顿饭</h3>
+          <p class="muted">还没在一起的时候，就已经在偷偷想以后了。想和你坐同一张桌子，把好吃的都夹给你，再理直气壮地抢回来一点。原来喜欢一个人，是连吃饭这件小事，都想和你分着过。</p>
+        </article>
+        <article class="panel">
+          <i class="dot"></i>
+          <time>每一次说晚安</time>
+          <h3>隔着屏幕也要送到的温度</h3>
+          <p class="muted">有的晚上什么都没发生，只是互相问了饿不饿、冷不冷、睡了没有。这样的记录最不像故事，却最像生活。</p>
+        </article>
+        <article class="panel">
+          <i class="dot"></i>
+          <time>2025.05.04 21:00</time>
+          <h3>大笨钟敲过的那一声</h3>
+          <p class="muted">晚上九点，橙子和花花把日子写成了同一行。从那天起，分别不再是走散，只是暂时走在同一条路的两头。</p>
+        </article>
+        <article class="panel">
+          <i class="dot"></i>
+          <time>尚未抵达</time>
+          <h3>海边、城堡、同一趟浪</h3>
+          <p class="muted">还没去成的旅行也要记下来。想在沙滩上画一颗最大的心，堆一座歪歪扭扭的城堡，再手拉手追着浪花跑。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="love">
+      <div class="section-title">
+        <h2>爱你，加倍，超级加倍</h2>
+      </div>
+      <div class="envelope-stage" id="envelope-stage">
+        <button class="envelope" id="love-envelope" type="button" aria-label="打开情书">
+          <span class="envelope__pocket" aria-hidden="true"></span>
+          <span class="envelope__flap" aria-hidden="true"></span>
+          <span class="envelope__seal" aria-hidden="true">♡</span>
+          <span class="envelope__hint">点击打开这封信</span>
+        </button>
+
+        <article class="love-letter" id="love-letter">
+          <div class="love-letter__body">
+            <p>亲爱的，其实我一直在想，怎么样才能把「喜欢你」这件事说得更好听一点。喜欢你这件事太大、太满、太多了，简单几句话根本装不下。所以今天，我想慢慢地、认真地、用最真诚的方式，把我心里那些对你从来没有说清楚的话，一点一点全都告诉你。</p>
+            <p>其实从认识你开始，我就觉得，你像是我生命里的一个特别的光。不是那种耀眼刺目的光，而是会悄悄照亮我日常生活的光，让原本普通的日子突然变得柔软、温暖、有期待。你知道吗？有时候我自己都想笑，因为我不过是想起你的一句话、想起你笑的样子、想起你皱眉的样子，就会觉得今天也没那么累了。</p>
+            <p>很多人说爱情是两个人的事情，但在我眼里，喜欢你这件事，是我一个人的幸运，是你给我最温柔的奖赏。因为自从你出现在我的生活里，我就开始有了「想变得更好」的理由。我想变得更耐心、更温柔、更稳重，不是因为我天生就这样，而是因为你值得最好的我。</p>
+            <p>有时候你会问我：「你到底喜欢我什么？」我每次都想说：「喜欢你不需要理由，但如果你真的想听，我可以给你一万个。」我喜欢你说话时温柔又坚定的语气，喜欢你认真时的模样，喜欢你撒娇时的小情绪，喜欢你生气时假装冷漠却藏不住的可爱。我喜欢你在消息里打的每一个字，因为我知道那些字都是你花时间想、花心思发给我的。我喜欢你看我的时候，那种全世界都静下来一样的安定感。</p>
+            <p>我喜欢你的一切，包括那些你觉得「不值得被喜欢」的部分。你可能不知道，当你焦虑、委屈或者乱想的时候，我一点也不觉得你麻烦。我只会心疼你、想哄你、想抱住你，让你知道你不是一个人扛着世界。我不是来指责你的，我是来保护你、陪你、治愈你的。</p>
+            <p>亲爱的，我希望你知道——你不是一个需要完美的人，你不是一个要永远坚强的人。你是我最想珍惜、最想呵护、最想用一生爱的人。别人看到的你，可能是独立、优秀、漂亮、懂事的你；而我看到的你，是真实、有点小脾气、有点小脆弱、也有点任性的你。那才是让我更想抱紧你的你。我不是喜欢一个「完美的你」。我喜欢的是你真实的样子。</p>
+            <p>你开心的时候，我想和你一起笑；你难过的时候，我想把你抱进怀里告诉你不用害怕；你累的时候，我想当你躺下来休息的肩膀；你想撒娇的时候，我永远都在。你不需要为我变得更好，可我会为了你努力成为更好的自己。因为喜欢你，让我有动力去成为一个值得你依靠的人。</p>
+            <p>我常常会想，如果有一天你突然累了、倒下了、撑不住了，我希望你第一时间想到的人是我。不是烦我，不是不好意思，而是你愿意信任我、依赖我、把自己交给我。我想成为那个让你觉得安全的人，让你知道无论发生什么，你都有一个地方可以回去，一个怀抱可以依靠。</p>
+            <p>也许我没有全世界最浪漫的语言，没有说过最动听的情话，但我愿意用我的认真、耐心、温柔、时间和未来，告诉你——你真的很值得被好好爱。你值得一个永远不会对你不耐烦的人；你值得一个愿意听你讲废话一整天的人；你值得一个会在你低落时陪你的人；你值得一个因为爱你而变得更好的人；而我想成为那个「值得」的人。</p>
+            <p>你在我眼里不是「差不多就行了」的人。你是我要用心疼、用力爱、用时间陪、用未来守的人。如果可以，我希望你永远不要怀疑你在我心里的位置。如果可以，我希望你每个夜晚都有我陪你睡，每个清晨都有我叫你起床。如果可以，我希望你的生活里，我是那个让你感到安心、快乐、被爱的存在。如果可以，我希望你永远让我的世界因为你而亮着灯。</p>
+            <p>亲爱的，其实有时候我会偷偷想，如果没有遇见你，我的生活会是什么样子。大概就是普通、平淡、按部就班吧。每天和往常一样，做着需要做的事情，看着相同的风景，心里没有特别期待，也没有特别惊喜。但遇见你之后，一切都变得不一样了。</p>
+            <p>你像是在我生命里撒了一把糖，让原本苦苦的日子突然变甜；像在我心里点了一盏灯，让我开始期待未来会变得不一样；像在我生活里种了一束花，让每一天都有了希望、有了颜色、有了意义。</p>
+            <p>你可能不知道，你身上那些细微的温柔，就是我坚持下去的力量。比如你偶尔的一句关心、你不经意的一个表情、你轻轻说的一句「注意身体」，都能让我在忙碌的日子里突然停下来，觉得这个世界好像也没有那么冷，没有那么难熬。</p>
+            <p>我喜欢你，是一种很安静、很确定、很稳定的喜欢。不是冲动的喜欢，也不是新鲜感的喜欢，而是那种——「我想陪你从现在走到未来，从喜欢变成习惯，从相伴变成一生。」</p>
+            <p>我经常会在心里想象未来。不是那种宏大夸张的未来，而是最真实、最生活化的那种未来：你坐在沙发上刷手机，我在厨房做饭；你洗澡的时候唱歌，我在外面笑你跑调；你窝在我怀里睡觉，我轻轻摸你的头发；你生气，我哄你；你难过，我抱你；你累了，我替你扛。其实爱情没有那么复杂，我想要的未来很简单：只要你在，就是全部。</p>
+            <p>你也许不知道，我有时候会因为你的一条消息开心半天；也会因为你突然安静下来担心好久；会因为你不舒服想飞到你身边；会因为你一句「我想你」整晚都睡不着。你是我心里最柔软的那一部分。只要想到你，我就舍不得凶你、舍不得冷你、舍不得让你伤心。你稍微有一点点不开心，我就会整颗心乱成一团，想尽办法哄你，把所有温柔都给你。</p>
+            <p>我想告诉你一个秘密：我不是天生温柔，我只是对你才这么温柔。你对我来说不是「顺路遇见的人」。你是我想停下脚步、想为你改变、想为你努力、想为你坚持的人。别人陪你聊天，我陪你走心；别人说喜欢，我想给你一生；别人只能看你笑，我想陪你哭、护你、懂你、珍惜你。</p>
+            <p>亲爱的，我多希望你知道——我对你的喜欢，是认真、深入、真实的。不是嘴上说说，也不是逢场作戏。我是把你放在心里最中心的位置，小心翼翼又满怀珍惜地喜欢着。你在我心里，是一个特别的位置。你是我在拥挤世界里唯一想拥抱的人；你是我在深夜里最想讲心事的人；你是我在所有人里最舍不得失去的人。</p>
+            <p>我喜欢你，不是因为你多完美，而是因为你对我来说，刚刚好是我喜欢的样子。你可以是温柔的、可爱的、任性的、倔的、调皮的、迷糊的、偶尔脆弱的你。我都喜欢。我喜欢你全部的样子，也愿意接受你所有的情绪。</p>
+            <p>如果有一天你突然崩溃、哭得一塌糊涂、觉得自己糟糕透顶，我不会嫌你烦，也不会离开。我会把你抱在怀里，一点一点帮你擦掉眼泪，然后告诉你：「没关系，我在。你不用这么坚强，累了就来我怀里休息。」</p>
+            <p>如果有一天你觉得自己不够好、不够漂亮、不够聪明、不够优秀，我会握着你的手说：「在我心里，你已经足够好。你值得我倾尽全部温柔。」</p>
+            <p>如果有一天你生病、发烧、难受，我会守在床边给你倒水、拿药、量体温，陪着你睡觉不离开。因为你不只是女朋友，你是我最珍贵的人。</p>
+            <p>我要你知道：我愿意陪你走过所有的风景，也愿意陪你走过所有的低谷。我愿意爱你的闪光，也愿意接住你的脆弱。我愿意守护你的梦想，也愿意保护你的情绪。如果以后你累了、哭了、害怕了、崩溃了，我都在。我不是你的麻烦，我是你的避风港。你不用把情绪收好交给我，我愿意接住你最真实的样子。</p>
+            <p>亲爱的，我喜欢你，不是说说而已。是我愿意花时间理解你、愿意耐心听你说、愿意照顾你的情绪、愿意陪你慢慢变老的那种喜欢。你是我想认真对待、认真守护、认真珍惜的人。我想陪你从现在到未来，从心动到深爱，再到白发苍苍。</p>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-title">
+        <h2>我们的照片</h2>
+        <p class="muted">把照片放进 <code>loveworld/photos/</code>，按 <code>01.jpg</code>、<code>02.jpg</code> 命名即可。</p>
+      </div>
+      <div class="photo-wall" id="photo-wall"></div>
+    </section>
+  </main>
+
+  <div class="lightbox hidden" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightbox-close" type="button">×</button>
+    <button class="lightbox-prev" id="lightbox-prev" type="button">‹</button>
+    <img id="lightbox-img" alt="照片" />
+    <button class="lightbox-next" id="lightbox-next" type="button">›</button>
+    <p class="lightbox-cap" id="lightbox-cap"></p>
+  </div>
+
+  <script src="js/garden.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
