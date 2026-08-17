@@ -17,7 +17,7 @@ jobs:
           BUCKET: ${{ secrets.COS_TENCENT_BUCKET }}
           REGION: ap-hongkong
         run: |
-          sudo pip install coscmd
+          pipx install coscmd
           coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
           coscmd upload -rs --delete ./ / -f
       
