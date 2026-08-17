@@ -280,18 +280,26 @@
     const syncIntroChrome = () => {
       document.body.classList.toggle("home-intro", window.scrollY < home.offsetHeight - 64);
     };
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((link) => {
-          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-        });
+    const setActive = () => {
+      const probe = window.scrollY + window.innerHeight * 0.35;
+      let currentId = "home";
+      map.forEach((sec) => {
+        if (!sec) return;
+        const top = sec.getBoundingClientRect().top + window.scrollY;
+        if (top <= probe) currentId = sec.id;
       });
-    }, { threshold: 0.35 });
-    map.forEach((sec) => sec && io.observe(sec));
+      links.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+      });
+    };
+    const onScroll = () => {
+      syncIntroChrome();
+      setActive();
+    };
     syncIntroChrome();
-    addEventListener("scroll", syncIntroChrome, { passive: true });
-    addEventListener("resize", syncIntroChrome);
+    setActive();
+    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("resize", onScroll);
   };
 
   document.addEventListener("click", (event) => {
